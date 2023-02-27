@@ -1,16 +1,15 @@
 import { Container } from "@mui/system"
+import { TextField, Button } from "@mui/material"
+import '../basestyles/newpost.css'
 
 const NewPost = () => {
   return (
     <Container>
-      <form>
-        <label id='title'>Title</label>
-        <input type='text' id='title'></input>
+      <form class='post-form'>
+        <TextField id='title' label='title'></TextField>
+        <TextField id='body' label='body'></TextField>
 
-        <label id='body'>Body</label>
-        <input type='textarea' id='body'></input>
-
-        <button>Submit</button>
+        <Button>Submit</Button>
       </form>
     </Container>
   )
