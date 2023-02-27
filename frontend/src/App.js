@@ -1,7 +1,6 @@
-import './basestyles/App.css';
-import Navbar from './components/Navbar';
-import Posts from './components/Posts';
-import Post from './components/Post';
+import "./basestyles/App.css";
+import Navbar from "./components/Navbar";
+import Posts from "./components/Posts";
 
 const App = () => {
   return (
@@ -10,6 +9,6 @@ const App = () => {
       <Posts></Posts>
     </div>
   );
-}
+};
 
 export default App;

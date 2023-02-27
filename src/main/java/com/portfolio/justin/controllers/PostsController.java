@@ -1,8 +1,13 @@
 package com.portfolio.justin.controllers;
 
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.util.List;
 
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.portfolio.justin.models.Post;
@@ -20,4 +25,10 @@ public class PostsController {
     public List<Post> getPosts() {
         return postRepository.findAll();
     }
-}
+    
+    @PostMapping
+    public ResponseEntity createPost(@RequestBody Post post) throws URISyntaxException {
+    	Post savedPost = postRepository.save(post);
+    	return ResponseEntity.created(new URI("/posts/" + savedPost.getId())).body(savedPost);
+    }
+  }

@@ -1,11 +1,11 @@
-import { Box } from "@mui/system"
+import { Box } from "@mui/system";
 
-const Post = ({title, content}) => {
+const Post = ({ title, content }) => {
   return (
-    <Box sx={{ p: 2, border: '1px solid grey' }}>
+    <Box sx={{ p: 2, border: "1px solid grey" }}>
       {title} - {content}
     </Box>
-  )
-}
+  );
+};
 
-export default Post
+export default Post;
