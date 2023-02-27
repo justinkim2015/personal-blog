@@ -6,21 +6,26 @@ const Posts = () => {
   const [posts, setPosts] = useState({});
   const [loading, setLoading] = useState(true);
 
-  // useEffect(() => {
-  //   fetch('/api/posts')
-  //   .then((resp) => {
-  //     return resp.json()
-  //   })
-  //   .then((resp) => {
-  //     setPosts(resp)
-  //     setLoading(false)
-  //   })
-  // }, [])
+  useEffect(() => {
+    fetch('/api/posts')
+    .then((resp) => {
+      return resp.json()
+    })
+    .then((resp) => {
+      setPosts(resp)
+      setLoading(false)
+    })
+  }, [])
 
-  const generatePosts = () => {};
+  const generatePosts = () => { 
+    return posts.map((post) => (
+      <Post key={post.id} title={post.title} content={post.body}></Post>
+    ))
+  };
+
   return (
     <Container>
-      <Post title="Title" content="Content"></Post>
+      {loading == true ? "Loading..." : generatePosts()}
     </Container>
   );
 };
