@@ -16,11 +16,6 @@ public class PostsController {
         this.postRepository = postRepository;
     }
 
-    @GetMapping("/")
-    public String greeting() {
-        return "Hello";
-    }
-
     @GetMapping("/posts")
     public List<Post> getPosts() {
         return postRepository.findAll();

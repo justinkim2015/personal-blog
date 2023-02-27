@@ -1,6 +1,6 @@
 package com.portfolio.justin.models;
 
-import java.time.Instant;
+import java.time.LocalDateTime;
 
 import org.springframework.data.annotation.CreatedDate;
 
@@ -18,7 +18,7 @@ public class Post {
 	private String body;
 	
 	@CreatedDate
-	private Instant createdDate;
+	private LocalDateTime createdAt;
 	
 	public Post() {
 	}
@@ -27,6 +27,7 @@ public class Post {
 		super();
 		this.title = title;
 		this.body = body;
+		this.createdAt = LocalDateTime.now();
 	}
 
 	public long getId() {
@@ -53,11 +54,11 @@ public class Post {
 		this.body = body;
 	}
 
-	public Instant getCreatedDate() {
-		return createdDate;
+	public LocalDateTime getCreatedDate() {
+		return createdAt;
 	}
 
-	public void setCreatedDate(Instant createdDate) {
-		this.createdDate = createdDate;
+	public void setCreatedDate(LocalDateTime createdAt) {
+		this.createdAt = createdAt;
 	}
 }
