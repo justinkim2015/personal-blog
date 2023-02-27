@@ -26,7 +26,8 @@ public class PostsController {
         return postRepository.findAll();
     }
     
-    @PostMapping
+//    curl -X POST http://localhost:8080/api -d '{"title": "Sixth", "body": "This was made using my PostsController"}'
+    @PostMapping("/posts")
     public ResponseEntity createPost(@RequestBody Post post) throws URISyntaxException {
     	Post savedPost = postRepository.save(post);
     	return ResponseEntity.created(new URI("/posts/" + savedPost.getId())).body(savedPost);

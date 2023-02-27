@@ -11,6 +11,26 @@ const NewPost = () => {
 
   const [post, setPost] = useState(initialFormState);
 
+
+  const handleClick = async () => {
+    const data = {
+      title: "alan",
+      body: "aturing"
+  };
+  
+    const response = await fetch('/api/posts', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(data)
+    });
+  
+    const result = await response.json();
+    console.log(result);
+  };
+  
+
   return (
     <Container>
       <form class="post-form">
@@ -19,6 +39,16 @@ const NewPost = () => {
 
         <Button>Submit</Button>
       </form>
+
+    <div onClick={handleClick} style={{
+      textAlign: 'center',
+      width: '100px',
+      border: '1px solid gray',
+      borderRadius: '5px'
+    }}>
+      Send data to backend
+    </div>
+
     </Container>
   );
 };
