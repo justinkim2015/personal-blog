@@ -1,11 +1,13 @@
 import './basestyles/App.css';
 import Navbar from './components/Navbar';
+import Posts from './components/Posts';
+import Post from './components/Post';
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
+    <div id="main">
       <Navbar></Navbar>
-      <h1>Justin's Blog</h1>
+      <Posts></Posts>
     </div>
   );
 }
