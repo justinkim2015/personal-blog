@@ -1,7 +1,7 @@
 import { Container } from "@mui/system";
 import { TextField, Button } from "@mui/material";
 import { useState } from "react";
-import "../basestyles/newpost.css";
+import "./basestyles/newpost.css";
 
 const NewPost = () => {
   const initialFormState = {
