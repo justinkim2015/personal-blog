@@ -11,21 +11,6 @@ const NewPost = () => {
 
   const [post, setPost] = useState(initialFormState);
 
-  // useEffect(() => {
-
-  //   setPost:({
-  //     title: 'he',
-  //     body: 'hi'
-  //   })
-  //   fetch('api/posts', {
-  //     method: 'POST',
-  //     headers: {
-  //       'Content-Type': 'application/json'
-  //     },
-  //     body: JSON.stringify(POST)
-  //   })
-  // });
-
   const handleSubmit = async () => {
     const response = await fetch('/api/posts', {
       method: 'POST',
@@ -48,7 +33,6 @@ const NewPost = () => {
       body: body
     })
   }
-
 
   return (
     <Container>
