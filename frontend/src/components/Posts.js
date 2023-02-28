@@ -19,7 +19,7 @@ const Posts = () => {
 
   const generatePosts = () => {
     return posts.map((post) => (
-      <Post key={post.id} title={post.title} content={post.body}></Post>
+      <Post key={post.id} title={post.title} content={post.body} postId={post.id}></Post>
     ));
   };
 
