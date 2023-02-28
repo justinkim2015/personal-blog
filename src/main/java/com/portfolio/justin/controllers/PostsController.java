@@ -6,6 +6,7 @@ import java.util.List;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -40,5 +41,10 @@ public class PostsController {
     public ResponseEntity createPost(@RequestBody Post post) throws URISyntaxException {
     	Post savedPost = postRepository.save(post);
     	return ResponseEntity.created(new URI("/posts/" + savedPost.getId())).body(savedPost);
+    }
+    
+    @DeleteMapping("posts/{id}")
+    void deletePost(@PathVariable Long id) {
+    	postRepository.deleteById(id);
     }
   }
