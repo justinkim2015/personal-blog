@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.portfolio.justin.PostNotFoundException;
 import com.portfolio.justin.models.Post;
 import com.portfolio.justin.repositories.PostRepository;
 
@@ -31,8 +32,8 @@ public class PostsController {
     @GetMapping("/posts/{id}")
     Post getPost(@PathVariable Long id) {
       
-      return postRepository.findById(id)
-    		  .orElseThrow();
+        return postRepository.findById(id)
+        	      .orElseThrow(() -> new PostNotFoundException(id));
     }
     
     @PostMapping("/posts")
