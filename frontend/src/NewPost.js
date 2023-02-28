@@ -13,31 +13,39 @@ const NewPost = () => {
 
 
   const handleClick = async () => {
-    const data = {
-      title: "alan",
-      body: "aturing"
-  };
-  
+    setPost({
+      title: "Cat",
+      body: "Dog",
+    })
+
     const response = await fetch('/api/posts', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify(data)
+      body: JSON.stringify(post)
     });
   
     const result = await response.json();
     console.log(result);
   };
+
+  const createPost = () => {
+    setPost({
+      title: "Cat",
+      body: "Dog",
+    })
+    console.log(post)
+  }
   
 
   return (
     <Container>
-      <form class="post-form">
+      <form className="post-form">
         <TextField id="title" label="title" variant="standard"></TextField>
         <TextField id="body" label="body" variant="standard"></TextField>
 
-        <Button>Submit</Button>
+        <Button onClick={createPost}>Submit</Button>
       </form>
 
     <div onClick={handleClick} style={{
