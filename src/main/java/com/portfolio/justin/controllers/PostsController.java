@@ -4,8 +4,10 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -26,7 +28,13 @@ public class PostsController {
         return postRepository.findAll();
     }
     
-//    curl -X POST http://localhost:8080/api -d '{"title": "Sixth", "body": "This was made using my PostsController"}'
+    @GetMapping("/posts/{id}")
+    Post getPost(@PathVariable Long id) {
+      
+      return postRepository.findById(id)
+    		  .orElseThrow();
+    }
+    
     @PostMapping("/posts")
     public ResponseEntity createPost(@RequestBody Post post) throws URISyntaxException {
     	Post savedPost = postRepository.save(post);
