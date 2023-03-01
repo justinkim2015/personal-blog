@@ -12,33 +12,40 @@ const NewPost = () => {
   const [post, setPost] = useState(initialFormState);
 
   const handleSubmit = async () => {
-    const response = await fetch('/api/posts', {
-      method: 'POST',
+    fetch("/api/posts", {
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json'
+        "Content-Type": "application/json",
       },
-      body: JSON.stringify(post)
+      body: JSON.stringify(post),
     });
-  
-    const result = await response.json();
-    console.log(result);
   };
 
   const handleChange = () => {
-    let title = document.getElementById('title').value  
-    let body = document.getElementById('body').value
+    let title = document.getElementById("title").value;
+    let body = document.getElementById("body").value;
 
     setPost({
       title: title,
-      body: body
-    })
-  }
+      body: body,
+    });
+  };
 
   return (
     <Container>
       <form className="post-form">
-        <TextField id="title" label="title" variant="standard" onChange={handleChange}></TextField>
-        <TextField id="body" label="body" variant="standard" onChange={handleChange}></TextField>
+        <TextField
+          id="title"
+          label="title"
+          variant="standard"
+          onChange={handleChange}
+        ></TextField>
+        <TextField
+          id="body"
+          label="body"
+          variant="standard"
+          onChange={handleChange}
+        ></TextField>
 
         <Button onClick={handleSubmit}>Submit</Button>
       </form>
