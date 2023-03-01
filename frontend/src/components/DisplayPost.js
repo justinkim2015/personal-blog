@@ -1,8 +1,7 @@
 import { Box } from "@mui/system";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate, Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { Button } from "@mui/material";
-import { useNavigate } from 'react-router-dom';
 
 const DisplayPost = () => {
   const { id } = useParams();
@@ -38,6 +37,7 @@ const handleDelete = async () => {
   return (
     <Box sx={{ p: 2, border: "1px solid grey" }}>
       {post.title} - {post.body}
+      <Link to={`/edit/${id}`}>Edit</Link>
       <Button onClick={handleDelete}>Delete</Button>
     </Box>
   );
