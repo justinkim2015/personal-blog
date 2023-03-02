@@ -1,11 +1,9 @@
 import { Link } from "@mui/material";
-import { grey } from '@mui/material/colors';
 
-const MyLink = ({href, text}) => {
-  const white = grey[50];
+const MyLink = ({href, text, sx, color}) => {
 
   return (
-    <Link href={href} color={white} variant="inherit" underline="hover">{text}</Link>
+    <Link href={href} color={color} variant="inherit" underline="hover" sx={sx}>{text}</Link>
   )
 }
 
