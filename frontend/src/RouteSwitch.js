@@ -2,9 +2,9 @@ import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import App from "./App";
-import NewPost from "./NewPost";
+import NewPost from "./new_post/NewPost";
 import DisplayPost from "./components/DisplayPost";
-import EditPost from "./EditPost"
+import EditPost from "./edit_post/EditPost"
 
 const RouteSwitch = () => {
   return (

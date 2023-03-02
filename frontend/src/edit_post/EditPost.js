@@ -1,8 +1,8 @@
 import { Container } from "@mui/system";
 import { TextField, Button } from "@mui/material";
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
-import "./basestyles/newpost.css";
+import { useNavigate, useParams } from "react-router-dom";
+import "../basestyles/newpost.css";
 
 const NewPost = () => {
   const initialFormState = {
@@ -10,13 +10,22 @@ const NewPost = () => {
     body: "",
   };
 
+  const { id } = useParams();
   const navigate = useNavigate();
   const [post, setPost] = useState(initialFormState);
 
+  useEffect(() => {
+    fetch(`/api/posts/${id}`)
+      .then((resp) => {return resp.json();})
+      .then((resp) => {
+        setPost(resp)
+      });
+  }, []);
+
   const handleSubmit = async () => {
     try {
-      await fetch("/api/posts", {
-        method: "POST",
+      await fetch(`/api/posts/${id}`, {
+        method: "PUT",
         headers: {
           "Content-Type": "application/json",
         },
@@ -25,7 +34,7 @@ const NewPost = () => {
 
       navigate("/");
     } catch (error) {
-      console.error("Error creating post", error);
+      console.error("Error updating post", error);
     }
   };
 
@@ -47,12 +56,14 @@ const NewPost = () => {
           label="title"
           variant="standard"
           onChange={handleChange}
+          value={post.title}
         ></TextField>
         <TextField
           id="body"
           label="body"
           variant="standard"
           onChange={handleChange}
+          value={post.body}
         ></TextField>
 
         <Button onClick={handleSubmit}>Submit</Button>
