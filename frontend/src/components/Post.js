@@ -7,7 +7,7 @@ const Post = ({ title, content, postId }) => {
   const black = grey[900];
 
   return (
-    <Box sx={{ p: 2, border: "1px solid grey" }}>
+    <Box sx={{ p: 2, border: "1px solid grey", borderRadius: 3, my: 1 }}>
       <Typography>
         <MyLink
           href={`/posts/${postId}`}
