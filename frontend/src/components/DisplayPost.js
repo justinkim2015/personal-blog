@@ -1,7 +1,10 @@
 import { Box } from "@mui/system";
-import { useParams, useNavigate, Link } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { Button } from "@mui/material";
+import { Typography} from "@mui/material";
+import PrettyDate from "./PrettyDate";
+import MyLink from "./MyLink";
+import { red } from "@mui/material/colors";
 
 const DisplayPost = () => {
   const { id } = useParams();
@@ -9,6 +12,7 @@ const DisplayPost = () => {
   const [post, setPost] = useState({});
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
+  const del = red[900];
 
   useEffect(() => {
     fetch("/api/posts/" + id)
@@ -21,24 +25,30 @@ const DisplayPost = () => {
       });
   }, []);
 
+  const handleDelete = async () => {
+    try {
+      await fetch("/api/posts/" + id, {
+        method: "DELETE",
+      });
 
-const handleDelete = async () => {
-  try {
-    await fetch('/api/posts/' + id, {
-      method: 'DELETE'
-    });
-
-    navigate('/');
-  } catch (error) {
-    console.error('Error deleting post:', error);
-  }
-};
+      navigate("/");
+    } catch (error) {
+      console.error("Error deleting post:", error);
+    }
+  };
 
   return (
-    <Box sx={{ p: 2, border: "1px solid grey" }}>
-      {post.title} - {post.body}
-      <Link to={`/edit/${id}`}>Edit</Link>
-      <Button onClick={handleDelete}>Delete</Button>
+    <Box sx={{ p: 2, m: 2, border: "1px solid grey", borderRadius: 2 }}>
+      <Typography variant="h4" sx={{ mb: 3 }}>
+        {post.title}
+      </Typography>
+      <Typography sx={{ mb: 3 }}>{post.body}</Typography>
+
+      <Typography variant="body2">
+        <PrettyDate date={post.createdDate}></PrettyDate> -
+        <MyLink href={`/edit/${id}`} text=' Edit'></MyLink> - 
+        <MyLink onClick={handleDelete} text=' Delete' color={del}></MyLink>
+      </Typography>
     </Box>
   );
 };
