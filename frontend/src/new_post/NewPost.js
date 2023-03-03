@@ -1,6 +1,6 @@
 import { Container } from "@mui/system";
 import { TextField, Button } from "@mui/material";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../basestyles/newpost.css";
 
@@ -40,19 +40,20 @@ const NewPost = () => {
   };
 
   return (
-    <Container>
+    <Container sx={{mt: 4}}>
       <form className="post-form">
         <TextField
           id="title"
-          label="title"
-          variant="standard"
+          label="Title goes here"
           onChange={handleChange}
+          sx={{my: 1}}
         ></TextField>
         <TextField
           id="body"
-          label="body"
-          variant="standard"
+          label="What's going on today?"
           onChange={handleChange}
+          multiline
+          rows={6}
         ></TextField>
 
         <Button onClick={handleSubmit}>Submit</Button>
