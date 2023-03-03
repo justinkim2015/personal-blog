@@ -2,6 +2,7 @@ import { Box } from "@mui/system";
 import MyLink from "./MyLink";
 import { Typography } from "@mui/material";
 import { grey } from "@mui/material/colors";
+import PrettyDate from "./PrettyDate";
 
 const Post = ({ title, content, postId, date }) => {
   const black = grey[900];
@@ -18,7 +19,9 @@ const Post = ({ title, content, postId, date }) => {
 
       <Typography variant="body1">{content}</Typography>
 
-      <Typography variant="body2">{date}</Typography>
+      <Typography variant="body2">
+        <PrettyDate date={date}></PrettyDate>
+      </Typography>
     </Box>
   );
 };

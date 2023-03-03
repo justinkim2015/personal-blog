@@ -17,11 +17,6 @@ const Posts = () => {
       });
   }, []);
 
-  const formatDate = (date) => {
-    let str = date.slice(0, 10);
-    return str
-  };
-
   const generatePosts = () => {
     return posts.map((post) => (
       <Post
@@ -29,7 +24,7 @@ const Posts = () => {
         title={post.title}
         content={post.body}
         postId={post.id}
-        date={formatDate(post.createdDate)}
+        date={post.createdDate}
       ></Post>
     ));
   };
