@@ -17,14 +17,27 @@ const Posts = () => {
       });
   }, []);
 
+  const formatDate = (date) => {
+    let str = date.slice(0, 10);
+    return str
+  };
+
   const generatePosts = () => {
     return posts.map((post) => (
-      <Post key={post.id} title={post.title} content={post.body} postId={post.id}></Post>
+      <Post
+        key={post.id}
+        title={post.title}
+        content={post.body}
+        postId={post.id}
+        date={formatDate(post.createdDate)}
+      ></Post>
     ));
   };
 
   return (
-    <Container sx={{my: 5}}>{loading == true ? "Loading..." : generatePosts()}</Container>
+    <Container sx={{ my: 5 }}>
+      {loading == true ? "Loading..." : generatePosts()}
+    </Container>
   );
 };
 
