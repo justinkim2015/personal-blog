@@ -49,24 +49,31 @@ const NewPost = () => {
   };
 
   return (
-    <Container>
+    <Container sx={{ mt: 4, width: 3 / 4 }}>
       <form className="post-form">
         <TextField
+          required
           id="title"
-          label="title"
-          variant="standard"
+          label="Title goes here"
+          variant="filled"
           onChange={handleChange}
           value={post.title}
+          sx={{ my: 1 }}
         ></TextField>
         <TextField
+          required
           id="body"
-          label="body"
-          variant="standard"
+          label="What's going on today?"
+          variant="filled"
           onChange={handleChange}
+          multiline
+          rows={6}
           value={post.body}
         ></TextField>
 
-        <Button onClick={handleSubmit}>Submit</Button>
+        <Button onClick={handleSubmit} variant="contained" sx={{ mt: 1 }}>
+          Submit
+        </Button>
       </form>
     </Container>
   );
