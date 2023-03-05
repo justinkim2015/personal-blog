@@ -5,6 +5,7 @@ import App from "./App";
 import NewPost from "./new_post/NewPost";
 import DisplayPost from "./components/DisplayPost";
 import EditPost from "./edit_post/EditPost"
+import Login from "./login/Login";
 
 const RouteSwitch = () => {
   return (
@@ -15,6 +16,7 @@ const RouteSwitch = () => {
         <Route path="/new" element={<NewPost />} />
         <Route path="/posts/:id" element={<DisplayPost />} />
         <Route path="/edit/:id" element={<EditPost />} />
+        <Route path="/admin" element={<Login />} />
       </Routes>
     </BrowserRouter>
   );
