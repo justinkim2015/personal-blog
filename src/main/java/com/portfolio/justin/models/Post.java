@@ -2,6 +2,7 @@ package com.portfolio.justin.models;
 
 import java.time.LocalDateTime;
 
+import jakarta.persistence.GenerationType;
 import org.springframework.data.annotation.CreatedDate;
 
 import jakarta.persistence.Entity;
@@ -12,10 +13,10 @@ import jakarta.persistence.Id;
 public class Post {
 	
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	private String title;
-	private String body;
+	private String content;
 	
 	@CreatedDate
 	private LocalDateTime createdAt;
@@ -23,10 +24,10 @@ public class Post {
 	public Post() {
 	}
 
-	public Post(String title, String body) {
+	public Post(String title, String content) {
 		super();
 		this.title = title;
-		this.body = body;
+		this.content = content;
 		this.createdAt = LocalDateTime.now();
 	}
 
@@ -46,12 +47,12 @@ public class Post {
 		this.title = title;
 	}
 
-	public String getBody() {
-		return body;
+	public String getContent() {
+		return content;
 	}
 
-	public void setBody(String body) {
-		this.body = body;
+	public void setContent(String body) {
+		this.content = body;
 	}
 
 	public LocalDateTime getCreatedDate() {

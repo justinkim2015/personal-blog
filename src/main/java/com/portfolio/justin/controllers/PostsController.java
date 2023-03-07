@@ -33,29 +33,29 @@ public class PostsController {
     
     @GetMapping("/posts/{id}")
     public Post getPost(@PathVariable Long id) {
-      
+
         return postRepository.findById(id)
         	      .orElseThrow(() -> new PostNotFoundException(id));
     }
-    
+
     @PostMapping("/posts")
     public ResponseEntity createPost(@RequestBody Post post) throws URISyntaxException {
     	Post savedPost = postRepository.save(post);
     	return ResponseEntity.created(new URI("/posts/" + savedPost.getId())).body(savedPost);
     }
-    
+
     @DeleteMapping("posts/{id}")
     void deletePost(@PathVariable Long id) {
     	postRepository.deleteById(id);
     }
-    
+
     @PutMapping("posts/{id}")
     public Post updatePost(@RequestBody Post newPost, @PathVariable Long id) {
-        
+
         return postRepository.findById(id)
           .map(post -> {
             post.setTitle(newPost.getTitle());
-            post.setBody(newPost.getBody());
+            post.setContent(newPost.getContent());
             return postRepository.save(post);
           })
           .orElseGet(() -> {
@@ -63,6 +63,4 @@ public class PostsController {
             return postRepository.save(newPost);
           });
       }
-
-
   }

@@ -13,10 +13,10 @@ const Post = ({ title, content, postId, date }) => {
     <div>
       <Box sx={{ p: 2 }}>
         <Typography variant="body2" color={lightGray}>
-          <PrettyDate date={date} ></PrettyDate>
+          <PrettyDate date={date}></PrettyDate>
         </Typography>
 
-        <Typography variant="h5">
+        <Typography variant="h5" sx={{ fontWeight: "medium" }}>
           <MyLink
             href={`/posts/${postId}`}
             text={`${title}`}
