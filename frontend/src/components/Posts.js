@@ -30,9 +30,9 @@ const Posts = () => {
   };
 
   return (
-    <Container sx={{ my: 5 }}>
-      {loading == true ? "Loading..." : generatePosts()}
-    </Container>
+      <Container sx={{ my: 5 }}>
+        {loading == true ? "Loading..." : generatePosts()}
+      </Container>
   );
 };
 

@@ -20,6 +20,7 @@ export default function Navbar() {
           <Typography component="div">
             <MyLink href='/' text='Home' sx={{m: 1}} color={white}></MyLink>
             <MyLink href='/new' text='New' sx={{m: 1}} color={white}></MyLink>
+            <MyLink href='http://www.justinjameskim.com' text='Portfolio' sx={{m: 1}} color={white}></MyLink>
           </Typography>
         </Toolbar>
       </AppBar>
