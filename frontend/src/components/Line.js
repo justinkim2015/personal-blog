@@ -1,0 +1,7 @@
+import "../basestyles/line.css";
+
+const Line = () => {
+  return <div className="line"></div>;
+};
+
+export default Line;

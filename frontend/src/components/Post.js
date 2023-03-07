@@ -3,26 +3,30 @@ import MyLink from "./MyLink";
 import { Typography } from "@mui/material";
 import { grey } from "@mui/material/colors";
 import PrettyDate from "./PrettyDate";
+import Line from "./Line";
 
 const Post = ({ title, content, postId, date }) => {
   const black = grey[900];
+  const lightGray = grey[600];
 
   return (
-    <Box sx={{ p: 2, border: "1px solid grey", borderRadius: 3, my: 1 }}>
-      <Typography variant="h5">
-        <MyLink
-          href={`/posts/${postId}`}
-          text={`${title}`}
-          color={black}
-        ></MyLink>
-      </Typography>
+    <div>
+      <Box sx={{ p: 2 }}>
+        <Typography variant="body2" color={lightGray}>
+          <PrettyDate date={date} ></PrettyDate>
+        </Typography>
 
-      <Typography variant="body1">{content}</Typography>
-
-      <Typography variant="body2">
-        <PrettyDate date={date}></PrettyDate>
-      </Typography>
-    </Box>
+        <Typography variant="h5">
+          <MyLink
+            href={`/posts/${postId}`}
+            text={`${title}`}
+            color={black}
+          ></MyLink>
+        </Typography>
+        <Typography variant="body1">{content}</Typography>
+      </Box>
+      <Line></Line>
+    </div>
   );
 };
 
