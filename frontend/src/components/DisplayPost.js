@@ -42,7 +42,7 @@ const DisplayPost = () => {
       <Typography variant="h4" sx={{ mb: 3 }}>
         {post.title}
       </Typography>
-      <Typography sx={{ mb: 3 }}>{post.body}</Typography>
+      <Typography sx={{ mb: 3 }}>{post.content}</Typography>
 
       <Typography variant="body2">
         <PrettyDate date={post.createdDate}></PrettyDate> -

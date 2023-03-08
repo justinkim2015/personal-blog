@@ -22,7 +22,7 @@ const Posts = () => {
       <Post
         key={post.id}
         title={post.title}
-        content={post.body}
+        content={post.content}
         postId={post.id}
         date={post.createdDate}
       ></Post>

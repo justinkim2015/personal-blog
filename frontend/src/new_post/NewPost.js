@@ -7,7 +7,7 @@ import "../basestyles/newpost.css";
 const NewPost = () => {
   const initialFormState = {
     title: "",
-    body: "",
+    content: "",
   };
 
   const navigate = useNavigate();
@@ -31,11 +31,11 @@ const NewPost = () => {
 
   const handleChange = () => {
     let title = document.getElementById("title").value;
-    let body = document.getElementById("body").value;
+    let content = document.getElementById("content").value;
 
     setPost({
       title: title,
-      body: body,
+      content: content,
     });
   };
 
@@ -52,7 +52,7 @@ const NewPost = () => {
         ></TextField>
         <TextField
           required
-          id="body"
+          id="content"
           label="What's going on today?"
           variant="filled"
           onChange={handleChange}
