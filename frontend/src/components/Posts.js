@@ -24,7 +24,7 @@ const Posts = () => {
         title={post.title}
         content={post.content}
         postId={post.id}
-        date={post.createdDate}
+        date={post.createdAt}
       ></Post>
     ));
   };
