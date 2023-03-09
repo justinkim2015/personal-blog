@@ -2,12 +2,9 @@ package com.portfolio.justin.models;
 
 import java.time.LocalDateTime;
 
-import jakarta.persistence.GenerationType;
-import org.springframework.data.annotation.CreatedDate;
+import jakarta.persistence.*;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import org.hibernate.annotations.CreationTimestamp;
 
 @Entity
 public class Post {
@@ -17,19 +14,11 @@ public class Post {
 	private long id;
 	private String title;
 	private String content;
-	
-	@CreatedDate
-	private LocalDateTime createdAt;
-	
-	public Post() {
-	}
 
-	public Post(String title, String content) {
-		super();
-		this.title = title;
-		this.content = content;
-		this.createdAt = LocalDateTime.now();
-	}
+	@CreationTimestamp
+	@Column(name = "created_at")
+	private LocalDateTime createdAt;
+
 
 	public long getId() {
 		return id;
@@ -51,15 +40,11 @@ public class Post {
 		return content;
 	}
 
-	public void setContent(String body) {
-		this.content = body;
+	public void setContent(String content) {
+		this.content = content;
 	}
 
-	public LocalDateTime getCreatedDate() {
+	public LocalDateTime getCreatedAt() {
 		return createdAt;
-	}
-
-	public void setCreatedDate(LocalDateTime createdAt) {
-		this.createdAt = createdAt;
 	}
 }
