@@ -1,7 +1,7 @@
 import { Box } from "@mui/system";
 import { useParams, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { Typography} from "@mui/material";
+import { Typography } from "@mui/material";
 import PrettyDate from "./PrettyDate";
 import MyLink from "./MyLink";
 import { red } from "@mui/material/colors";
@@ -45,9 +45,14 @@ const DisplayPost = () => {
       <Typography sx={{ mb: 3 }}>{post.content}</Typography>
 
       <Typography variant="body2">
-        <PrettyDate date={post.createdDate}></PrettyDate> -
-        <MyLink href={`/edit/${id}`} text=' Edit'></MyLink> - 
-        <MyLink onClick={handleDelete} text=' Delete' color={del}></MyLink>
+        <PrettyDate date={post.createdAt}></PrettyDate> -
+        <MyLink href={`/edit/${id}`} text=" Edit"></MyLink> -
+        <MyLink
+          href={"#"}
+          onClick={handleDelete}
+          text=" Delete"
+          color={del}
+        ></MyLink>
       </Typography>
     </Box>
   );

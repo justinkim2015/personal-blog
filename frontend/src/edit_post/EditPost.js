@@ -24,12 +24,13 @@ const NewPost = () => {
 
   const handleSubmit = async () => {
     try {
+      console.log(JSON.stringify(post))
       await fetch(`/api/posts/${id}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
         },
-        content: JSON.stringify(post),
+        body: JSON.stringify(post),
       });
 
       navigate("/");

@@ -15,7 +15,6 @@ const NewPost = () => {
 
   const handleSubmit = async () => {
     try {
-      console.log(JSON.stringify(post))
       await fetch("/api/posts", {
         method: "POST",
         headers: {
