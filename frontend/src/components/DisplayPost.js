@@ -49,7 +49,7 @@ const DisplayPost = () => {
         <MyLink href={`/edit/${id}`} text=" Edit"></MyLink> -
         <MyLink
           href={"#"}
-          onClick={handleDelete}
+          click={handleDelete}
           text=" Delete"
           color={del}
         ></MyLink>
