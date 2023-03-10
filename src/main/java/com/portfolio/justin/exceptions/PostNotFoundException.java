@@ -1,4 +1,4 @@
-package com.portfolio.justin;
+package com.portfolio.justin.exceptions;
 
 public class PostNotFoundException extends RuntimeException {
 
