@@ -1,4 +1,5 @@
 package com.portfolio.justin.security;
+import com.portfolio.justin.security.jwt.AuthEntryPointJwt;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -14,7 +15,7 @@ import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import com.portfolio.justin.security.services.UserDetailsServiceImpl;
 
-import com.bezkoder.springjwt.security.jwt.AuthTokenFilter;
+import com.portfolio.justin.security.jwt.AuthTokenFilter;
 
 @Configuration
 @EnableGlobalMethodSecurity(
